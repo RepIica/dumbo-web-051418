@@ -1,11 +1,15 @@
 class Painting
-  attr_reader :year, :painter
+  attr_reader :year, :painter, :gallery
   attr_accessor :title
 
-  def initialize(title,painter,year)
+  @@all = []
+
+  def initialize(title, painter, year, gallery)
     @title = title
     @painter = painter
     @year = year
+    @@all << self
+    @gallery = gallery
   end
 
   def self.all

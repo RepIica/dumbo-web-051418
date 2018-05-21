@@ -16,7 +16,13 @@ class Painter
   end
 
   def paintings
-    #returns an array of Painting instances
+    Painting.all.select do |painting| #returns array of paintings for which below block is true
+      painting.painter == self
+    end
+  end
+
+  def galleries
+    self.paintings.collect {|painting| painting.gallery}.uniq #returns new array of galleries associated with each painting of painter
   end
 
   def make_painting
